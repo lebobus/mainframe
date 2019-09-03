@@ -1,0 +1,10 @@
+main: me.lebobus.mainframe.Main
+name: mainframe
+version: '1.0'
+description: mainframe.
+author: Bobus
+commands:
+     ban:
+     unban:
+     kick:
+     logs:
