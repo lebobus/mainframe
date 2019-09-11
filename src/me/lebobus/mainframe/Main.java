@@ -1,5 +1,6 @@
 package me.lebobus.mainframe;
 
+import me.lebobus.mainframe.brackets.BracketsManager;
 import me.lebobus.mainframe.utils.Files;
 import me.lebobus.mainframe.utils.PlayerData;
 import me.lebobus.mainframe.utils.PluginsHider;
@@ -12,6 +13,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import static me.lebobus.mainframe.brackets.BracketsScheduler.scheduleRepeatAtTime;
+
 public class Main extends JavaPlugin implements Listener {
 
     public static Plugin inst;
@@ -20,12 +23,16 @@ public class Main extends JavaPlugin implements Listener {
     public void onEnable() {
 
         registerEvents(this, this);
-        registerEvents(this, new PluginsHider(), new PlayerData());
+        registerEvents(this, new PluginsHider(), new PlayerData(), new Ban());
 
         getCommand("ban").setExecutor(new Ban());
         getCommand("unban").setExecutor(new Ban());
         getCommand("kick").setExecutor(new Kick());
         getCommand("logs").setExecutor(new Command());
+
+        //BracketsManager.launchTask();
+
+        saveDefaultConfig();
 
         inst = this;
         plugin = this;

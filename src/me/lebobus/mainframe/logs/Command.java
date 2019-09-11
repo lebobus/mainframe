@@ -46,7 +46,7 @@ public class Command implements CommandExecutor {
 
             playerFile.loadFile();
 
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Latest logs for&b" + target.getName()));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Latest logs for &b" + target.getName()));
             for (String id : playerFileconf.getConfigurationSection("logs").getKeys(false)) {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7ID: &b" + id));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Staff: &b" + playerFile.getString("logs." + id + "." + ".staff")));
